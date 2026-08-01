@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 197.424 197.424">
+  <defs>
+    <linearGradient id="sv" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#e8e8e8"/>
+      <stop offset="40%"  stop-color="#c0c0c0"/>
+      <stop offset="100%" stop-color="#888"/>
+    </linearGradient>
+    <linearGradient id="sv2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#d0d0d0"/>
+      <stop offset="50%"  stop-color="#a0a0a0"/>
+      <stop offset="100%" stop-color="#707070"/>
+    </linearGradient>
+    <linearGradient id="wh" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#b0b0b0"/>
+      <stop offset="100%" stop-color="#555"/>
+    </linearGradient>
+  </defs>
+  <!-- full-bleed off-white background so the icon reads on both light and dark themes -->
+  <rect x="0" y="0" width="197.424" height="197.424" rx="16" ry="16" fill="#fafafa"/>
+  <!-- content is the original 185x170 favicon.svg artwork (src/html/favicon.svg
+       in the firmware repo), offset to center it with equal left/right margins
+       (10px at the 256px render size - see generate.sh) -->
+  <g transform="translate(7.712,13.712)">
+    <!-- side control panel -->
+    <rect x="0" y="68" width="42" height="20" rx="2" fill="url(#sv2)"/>
+    <rect x="5" y="72.5" width="32" height="10" rx="1" fill="#555"/>
+    <!-- lid -->
+    <rect x="42" y="0" width="140" height="60" rx="4" fill="#1a1a1a"/>
+    <!-- thermometer -->
+    <circle cx="112" cy="16" r="7" fill="none" stroke="url(#sv)" stroke-width="2"/>
+    <circle cx="112" cy="16" r="3" fill="#cc2222"/>
+    <!-- handle: centered on body midpoint x=112 -->
+    <rect x="72" y="36" width="80" height="7" rx="3" fill="url(#sv)"/>
+    <!-- silver band -->
+    <rect x="42" y="60" width="140" height="28" rx="2" fill="url(#sv)"/>
+    <!-- lower body -->
+    <rect x="42" y="88" width="140" height="18" rx="2" fill="#1a1a1a"/>
+    <!-- legs -->
+    <rect x="52" y="106" width="6" height="44" fill="#1a1a1a"/>
+    <rect x="166" y="106" width="6" height="44" fill="#1a1a1a"/>
+    <!-- shelf -->
+    <rect x="52" y="136" width="120" height="14" rx="2" fill="url(#sv2)"/>
+    <!-- caster -->
+    <circle cx="60" cy="155" r="6" fill="#1a1a1a" stroke="url(#wh)" stroke-width="3"/>
+    <!-- big wheel -->
+    <circle cx="166" cy="153" r="12" fill="#1a1a1a" stroke="url(#wh)" stroke-width="3"/>
+    <circle cx="166" cy="153" r="4" fill="url(#wh)"/>
+  </g>
+</svg>

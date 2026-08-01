@@ -1,0 +1,12 @@
+# Python development and runtime files
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Editor configuration
+.vscode/
+.zed/
+.helix/
+.nvim.lua

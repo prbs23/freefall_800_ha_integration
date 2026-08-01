@@ -1,0 +1,44 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "description": "Enter the IP address or hostname of your FreeFall 800 on your local network. You can find this in the device's own web UI or your router's DHCP client list.",
+        "data": {
+          "host": "Host",
+          "port": "Port"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect. Check the host/port and that the device is powered on and connected to the network.",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This device is already configured"
+    }
+  },
+  "entity": {
+    "climate": {
+      "grill": { "name": "Grill" }
+    },
+    "sensor": {
+      "probe_temp": { "name": "Probe {index} temperature" },
+      "fan_speed": { "name": "Fan speed" },
+      "timer_finishes_at": { "name": "Timer finishes at" }
+    },
+    "binary_sensor": {
+      "lid_switch": { "name": "Lid Open" }
+    },
+    "number": {
+      "probe_target": { "name": "Probe {index} target" },
+      "timer_duration": { "name": "Timer duration" }
+    },
+    "switch": {
+      "power": { "name": "Power" },
+      "probe_alarm": { "name": "Probe {index} alarm" }
+    },
+    "button": {
+      "timer_clear": { "name": "Timer clear" }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+# Devlopment tooling only (Pylance import resolution, type checking), not used
+# at runtime.
+homeassistant>=2024.6.0
+ruff
