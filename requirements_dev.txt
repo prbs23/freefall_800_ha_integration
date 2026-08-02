@@ -2,3 +2,4 @@
 # at runtime.
 homeassistant>=2024.6.0
 ruff
+pyright
