@@ -4,7 +4,7 @@
 
 For more general information about FreeFall 800, see the main repository here: [prbs23/freefall_800](https://gitlab.com/prbs23/freefall_800)
 
-[[_TOC_]]
+If you are accessing this through GitHub, be aware that this is a read-only mirror of the real [FreeFall 800 Home Assistant Integration](https://gitlab.com/prbs23/freefall_800_ha_integration) repository. The primary instance of this repository is on GitLab: [prbs23/freefall_800_ha_integration](https://gitlab.com/prbs23/freefall_800_ha_integration).
 
 ## Entities
 
