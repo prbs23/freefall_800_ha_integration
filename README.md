@@ -4,7 +4,7 @@
 
 For more general information about FreeFall 800, see the main repository here: [prbs23/freefall_800](https://gitlab.com/prbs23/freefall_800)
 
-[[_TOC_]]
+If you are accessing this through GitHub, be aware that this is a read-only mirror of the real [FreeFall 800 Home Assistant Integration](https://gitlab.com/prbs23/freefall_800_ha_integration) repository. The primary instance of this repository is on GitLab: [prbs23/freefall_800_ha_integration](https://gitlab.com/prbs23/freefall_800_ha_integration).
 
 ## Entities
 
@@ -72,13 +72,11 @@ Blueprints → Import Blueprint**.
 
 ### HACS
 
-Add this repository as a [custom repository](https://hacs.xyz/docs/faq/custom_repositories/)
-in HACS, category "Integration", then install "FreeFall 800".
+If you are using [HACS (Home Assistant Community Store)](https://hacs.xyz), then you can add the `prbs23/freefall_800_ha_integration` repo as a [custom repository](https://hacs.xyz/docs/faq/custom_repositories/).
 
 ### Manual
 
-Copy `custom_components/freefall800/` into your Home Assistant config's
-`custom_components/` directory and restart Home Assistant.
+For manual installation, copy `custom_components/freefall800/` from this repo into your Home Assistant config's `custom_components/` directory and restart Home Assistant.
 
 Then, in either case: **Settings → Devices & Services → Add Integration →
 FreeFall 800**, and enter the device's IP address or host name.
