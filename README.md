@@ -113,7 +113,7 @@ Add `--fix` to have ruff apply its safe fixes automatically.
 If you run into bugs or have feature requests for the FreeFall 800 Home Assistant integration, please report them on the [FreeFall 800 Issue Tracker](https://gitlab.com/prbs23/freefall_800/-/work_items)
 
 ## License
-Licensed under the GNU General Public License v3.0 — see (LICENSE)[LICENSE].
+Licensed under the GNU General Public License v3.0 — see [LICENSE](LICENSE).
 
 ## AI Use
 LLMs have been used in the development of this repository and reverse engineering of the original controller. However, most code was human-developed, and all AI-generated code has been fully reviewed, if not modified, by a human.
