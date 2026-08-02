@@ -1,0 +1,53 @@
+blueprint:
+  name: "FreeFall 800: Probe Alarm Reached"
+  description: >
+    Runs an action once when a probe's current temperature first
+    reaches its target temperature. Requires the FreeFall 800 integration.
+  domain: automation
+  source_url: https://gitlab.com/prbs23/freefall_800_ha_integration/-/raw/main/blueprints/automation/freefall800/probe_alarm_reached.yaml
+  input:
+    grill_device:
+      name: FreeFall 800
+      selector:
+        device:
+          filter:
+            - integration: freefall800
+    probe_trigger_type:
+      name: Probe
+      selector:
+        select:
+          mode: dropdown
+          options:
+            - label: Probe 1
+              value: probe_1_alarm
+            - label: Probe 2
+              value: probe_2_alarm
+            - label: Probe 3
+              value: probe_3_alarm
+            - label: Probe 4
+              value: probe_4_alarm
+    notify_action:
+      name: Notification action
+      description: >
+        What to do when the probe alarm is reached. {{ probe_number }} is
+        available here (and in your own action, if you replace the
+        default) - the probe number (1-4) that triggered. Defaults to an
+        in-app persistent notification.
+      default:
+        - action: persistent_notification.create
+          data:
+            title: FreeFall 800
+            message: "Probe {{ probe_number }} alarm target has been reached."
+      selector:
+        action: {}
+
+trigger:
+  - trigger: device
+    device_id: !input grill_device
+    domain: freefall800
+    type: !input probe_trigger_type
+
+variables:
+  probe_number: "{{ trigger.event.data.type.split('_')[1] }}"
+
+action: !input notify_action

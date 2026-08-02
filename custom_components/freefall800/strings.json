@@ -40,5 +40,15 @@
     "button": {
       "timer_clear": { "name": "Timer clear" }
     }
+  },
+  "device_automation": {
+    "trigger_type": {
+      "grill_reached_target": "Grill reached target temperature",
+      "probe_1_alarm": "Probe 1 alarm reached",
+      "probe_2_alarm": "Probe 2 alarm reached",
+      "probe_3_alarm": "Probe 3 alarm reached",
+      "probe_4_alarm": "Probe 4 alarm reached",
+      "timer_expired": "Timer expired"
+    }
   }
 }

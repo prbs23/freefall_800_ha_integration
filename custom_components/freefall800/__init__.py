@@ -6,9 +6,11 @@ import logging
 
 from homeassistant.const import CONF_HOST, CONF_PORT, Platform
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .api import FreeFall800Client, FreeFall800ConnectionError
+from .const import DOMAIN
 from .coordinator import FreeFall800ConfigEntry, FreeFall800Coordinator
 
 _LOGGER = logging.getLogger(__name__)
@@ -44,6 +46,14 @@ async def async_setup_entry(hass: HomeAssistant, entry: FreeFall800ConfigEntry) 
     entry.runtime_data = coordinator
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+
+    # Entities register the device via their own DeviceInfo during the
+    # forward above; look it up now so the coordinator can key device
+    # trigger events (device_trigger.py) on its registry ID.
+    device_entry = dr.async_get(hass).async_get_device(identifiers={(DOMAIN, entry.entry_id)})
+    if device_entry is not None:
+        coordinator.device_id = device_entry.id
+
     return True
 
 
