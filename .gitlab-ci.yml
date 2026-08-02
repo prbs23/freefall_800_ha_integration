@@ -1,0 +1,17 @@
+stages:
+  - lint
+
+default:
+  image: python:3.13
+  before_script:
+    - pip install -r requirements_dev.txt
+
+ruff:
+  stage: lint
+  script:
+    - ruff check .
+
+pyright:
+  stage: lint
+  script:
+    - pyright
