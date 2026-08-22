@@ -26,12 +26,8 @@ class FreeFall800Client:
         self._timeout = aiohttp.ClientTimeout(total=REQUEST_TIMEOUT_SECONDS)
 
     async def get_status(self) -> dict[str, Any]:
-        """Fetch /api/status (temps, fan, power, lid switch, timer remaining)."""
+        """Fetch /api/status (temps, fan, power, lid switch, setpoints, timer)."""
         return await self._get("/api/status")
-
-    async def get_control(self) -> dict[str, Any]:
-        """Fetch /api/control (current setpoints)."""
-        return await self._get("/api/control")
 
     async def get_config(self) -> dict[str, Any]:
         """Fetch /api/config (calibration, WiFi, mac_address, build info)."""
