@@ -15,6 +15,7 @@ The FreeFall 800 integration provides the following entities to Home Assistant.
 | `climate`          | Grill                        | `current_temp_c` / `set_temp_c`                |
 | `switch`           | Power                        | `power_on`                                     |
 | `switch`           | Probe 1-4 alarm              | `probe_set_temp_c[]` (armed = not null)        |
+| `sensor`           | Thermocouple temperature     | `thermocouple_temp_c`                          |
 | `sensor`           | Probe 1-4 temperature        | `probe_temp_c[]`                               |
 | `sensor`           | Fan speed                    | `fan_speed_pct`                                |
 | `sensor`           | Timer finishes at            | `timer_remaining_s` (as an absolute timestamp) |
@@ -24,7 +25,7 @@ The FreeFall 800 integration provides the following entities to Home Assistant.
 | `button`           | Clear timer                  | `timer_duration_s` (sets it to null)           |
 
 The device has no push channel (no WebSocket/SSE/mDNS today), so the
-integration polls `/api/status` and `/api/control` every 10 seconds
+integration polls `/api/status` every 10 seconds
 (`iot_class: local_polling` in `manifest.json`).
 
 Config entries are keyed on the device's MAC address (`mac_address` from

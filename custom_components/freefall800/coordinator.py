@@ -35,6 +35,7 @@ class FreeFall800Data:
     fan_speed_pct: int
     current_temp_c: float | None
     set_temp_c: float | None
+    thermocouple_temp_c: float | None
     probe_temp_c: list[float | None]
     probe_set_temp_c: list[float | None]
     timer_remaining_s: int | None
@@ -78,6 +79,7 @@ class FreeFall800Coordinator(DataUpdateCoordinator[FreeFall800Data]):
             fan_speed_pct=status["fan_speed_pct"],
             current_temp_c=status.get("current_temp_c"),
             set_temp_c=status.get("set_temp_c"),
+            thermocouple_temp_c=status.get("thermocouple_temp_c"),
             probe_temp_c=probe_temp_c,
             probe_set_temp_c=probe_set_temp_c,
             timer_remaining_s=status.get("timer_remaining_s"),
