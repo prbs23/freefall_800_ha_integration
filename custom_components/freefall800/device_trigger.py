@@ -1,4 +1,4 @@
-"""Device triggers for FreeFall 800."""
+"""Device triggers for FreeFall."""
 
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ TRIGGER_SCHEMA = DEVICE_TRIGGER_BASE_SCHEMA.extend(
 
 
 async def async_get_triggers(hass: HomeAssistant, device_id: str) -> list[dict[str, str]]:
-    """Return the triggers available for a FreeFall 800 device."""
+    """Return the triggers available for a FreeFall device."""
     return [
         {
             CONF_PLATFORM: "device",

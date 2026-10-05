@@ -2,7 +2,7 @@
   "config": {
     "step": {
       "user": {
-        "description": "Enter the IP address or hostname of your FreeFall 800 on your local network. You can find this in the device's own web UI or your router's DHCP client list.",
+        "description": "Enter the IP address or hostname of your FreeFall on your local network. You can find this in the device's own web UI or your router's DHCP client list.",
         "data": {
           "host": "Host",
           "port": "Port"

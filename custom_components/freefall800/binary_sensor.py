@@ -1,4 +1,4 @@
-"""Binary sensor platform for the FreeFall 800: lid state."""
+"""Binary sensor platform for the FreeFall: lid state."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ async def async_setup_entry(
     entry: FreeFall800ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up the lid switch binary sensor for a FreeFall 800 config entry."""
+    """Set up the lid switch binary sensor for a FreeFall config entry."""
     async_add_entities([FreeFall800LidSwitchSensor(entry.runtime_data)])
 
 

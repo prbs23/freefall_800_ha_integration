@@ -1,4 +1,4 @@
-"""Data update coordinator for the FreeFall 800 integration."""
+"""Data update coordinator for the FreeFall integration."""
 
 from __future__ import annotations
 
@@ -61,6 +61,7 @@ class FreeFall800Coordinator(DataUpdateCoordinator[FreeFall800Data]):
         # Set once in __init__.py's async_setup_entry, not refreshed on
         # every poll - see the comment there for why.
         self.sw_version: str | None = None
+        self.hw_model: str | None = None
         self.device_id: str | None = None
 
     async def _async_update_data(self) -> FreeFall800Data:

@@ -1,6 +1,6 @@
 {
   "domain": "freefall800",
-  "name": "FreeFall 800",
+  "name": "FreeFall",
   "codeowners": ["@prbs23"],
   "config_flow": true,
   "documentation": "https://gitlab.com/prbs23/freefall_800_ha_integration",

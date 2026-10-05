@@ -1,4 +1,4 @@
-"""Sensor platform for the FreeFall 800: thermocouple/probe temps, fan speed, timer."""
+"""Sensor platform for the FreeFall: thermocouple/probe temps, fan speed, timer."""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ async def async_setup_entry(
     entry: FreeFall800ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up sensors for a FreeFall 800 config entry."""
+    """Set up sensors for a FreeFall config entry."""
     coordinator = entry.runtime_data
     entities: list[SensorEntity] = [
         FreeFall800ProbeTempSensor(coordinator, index) for index in range(NUM_PROBES)

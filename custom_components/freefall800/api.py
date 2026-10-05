@@ -1,4 +1,4 @@
-"""Thin HTTP client for the FreeFall 800's local REST API."""
+"""Thin HTTP client for the FreeFall's local REST API."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ from .const import REQUEST_TIMEOUT_SECONDS
 
 
 class FreeFall800Error(Exception):
-    """Base error for the FreeFall 800 client."""
+    """Base error for the FreeFall client."""
 
 
 class FreeFall800ConnectionError(FreeFall800Error):
@@ -18,7 +18,7 @@ class FreeFall800ConnectionError(FreeFall800Error):
 
 
 class FreeFall800Client:
-    """Talks to a FreeFall 800's /api/status and /api/control endpoints."""
+    """Talks to a FreeFall's /api/status and /api/control endpoints."""
 
     def __init__(self, session: aiohttp.ClientSession, host: str, port: int) -> None:
         self._session = session

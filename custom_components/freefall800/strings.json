@@ -2,7 +2,7 @@
   "config": {
     "step": {
       "user": {
-        "description": "Enter the IP address or hostname of your FreeFall 800 on your local network.",
+        "description": "Enter the IP address or hostname of your FreeFall on your local network.",
         "data": {
           "host": "Host",
           "port": "Port"

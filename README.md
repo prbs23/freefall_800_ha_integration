@@ -1,14 +1,14 @@
-# FreeFall 800 Home Assistant Integration
+# FreeFall Home Assistant Integration
 
-[Home Assistant](https://www.home-assistant.io/) integration for the [FreeFall 800](https://gitlab.com/prbs23/freefall_800) open source firmware.
+[Home Assistant](https://www.home-assistant.io/) integration for the [FreeFall](https://gitlab.com/prbs23/freefall_800) open source firmware.
 
-For more general information about FreeFall 800, see the main repository here: [prbs23/freefall_800](https://gitlab.com/prbs23/freefall_800)
+For more general information about FreeFall, see the main repository here: [prbs23/freefall_800](https://gitlab.com/prbs23/freefall_800)
 
 [[_TOC_]]
 
 ## Entities
 
-The FreeFall 800 integration provides the following entities to Home Assistant.
+The FreeFall integration provides the following entities to Home Assistant.
 
 | Platform           | Entity                       | Source                                         |
 | ------------------ | ---------------------------- | ---------------------------------------------- |
@@ -50,7 +50,7 @@ entities are obviously also available to use.
 
 ### Notification blueprints
 
-To help set up notifications and other triggered automations from your FreeFall 800
+To help set up notifications and other triggered automations from your FreeFall
 device, this repository also distributes some helpful automation blueprints. To import
 these blueprints into your instance you can use the buttons below through
 [my.home-assistant.io](https://my.home-assistant.io), or you can copy the provided links
@@ -74,7 +74,7 @@ Blueprints → Import Blueprint**.
 ### HACS
 
 Add this repository as a [custom repository](https://hacs.xyz/docs/faq/custom_repositories/)
-in HACS, category "Integration", then install "FreeFall 800".
+in HACS, category "Integration", then install "FreeFall".
 
 ### Manual
 
@@ -82,7 +82,7 @@ Copy `custom_components/freefall800/` into your Home Assistant config's
 `custom_components/` directory and restart Home Assistant.
 
 Then, in either case: **Settings → Devices & Services → Add Integration →
-FreeFall 800**, and enter the device's IP address or host name.
+FreeFall**, and enter the device's IP address or host name.
 
 ## Development
 
@@ -113,7 +113,7 @@ ruff check custom_components/freefall800/
 Add `--fix` to have ruff apply its safe fixes automatically.
 
 ## Reporting issues
-If you run into bugs or have feature requests for the FreeFall 800 Home Assistant integration, please report them on the [FreeFall 800 Issue Tracker](https://gitlab.com/prbs23/freefall_800/-/work_items)
+If you run into bugs or have feature requests for the FreeFall Home Assistant integration, please report them on the [FreeFall Issue Tracker](https://gitlab.com/prbs23/freefall_800/-/work_items)
 
 ## License
 Licensed under the GNU General Public License v3.0 — see (LICENSE)[LICENSE].

@@ -1,4 +1,4 @@
-"""Button platform for the FreeFall 800: clearing the timer.
+"""Button platform for the FreeFall: clearing the timer.
 
 number entities always hold a numeric value - there's no UI-driven way to
 send the device a null timer_duration_s. This button is the explicit action
@@ -21,7 +21,7 @@ async def async_setup_entry(
     entry: FreeFall800ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up the clear-timer button for a FreeFall 800 config entry."""
+    """Set up the clear-timer button for a FreeFall config entry."""
     async_add_entities([FreeFall800ClearTimerButton(entry.runtime_data)])
 
 

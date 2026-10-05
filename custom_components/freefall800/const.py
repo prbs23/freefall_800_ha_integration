@@ -1,8 +1,15 @@
-"""Constants for the FreeFall 800 integration."""
+"""Constants for the FreeFall integration."""
 
 DOMAIN = "freefall800"
 MANUFACTURER = "FreeFall"
-MODEL = "FreeFall 800"
+
+# Display names for the hw_model values reported by /api/config.
+MODEL_NAMES = {
+    "gravity_800": "FreeFall 800",
+    "gravity_1150": "FreeFall 1150",
+}
+# Firmware older than the hw_model field only supported the Gravity 800.
+DEFAULT_HW_MODEL = "gravity_800"
 
 DEFAULT_PORT = 80
 
@@ -30,3 +37,13 @@ EVENT_TYPE = f"{DOMAIN}_event"
 TRIGGER_GRILL_REACHED_TARGET = "grill_reached_target"
 TRIGGER_TIMER_EXPIRED = "timer_expired"
 TRIGGER_PROBE_ALARM_FMT = "probe_{index}_alarm"
+
+
+def model_name(hw_model: str | None) -> str:
+    """Display name for a device from /api/config's hw_model.
+
+    A missing hw_model is treated as DEFAULT_HW_MODEL, and a model not in
+    MODEL_NAMES is shown as its raw hw_model string.
+    """
+    hw_model = hw_model or DEFAULT_HW_MODEL
+    return MODEL_NAMES.get(hw_model, hw_model)

@@ -1,4 +1,4 @@
-"""Switch platform for the FreeFall 800's master power."""
+"""Switch platform for the FreeFall's master power."""
 
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ async def async_setup_entry(
     entry: FreeFall800ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up switches for a FreeFall 800 config entry."""
+    """Set up switches for a FreeFall config entry."""
     coordinator = entry.runtime_data
     entities: list[SwitchEntity] = [FreeFall800PowerSwitch(coordinator)]
     entities += [FreeFall800ProbeAlarmSwitch(coordinator, index) for index in range(NUM_PROBES)]
