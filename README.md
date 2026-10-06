@@ -4,7 +4,7 @@
 
 For more general information about FreeFall, see the main repository here: [prbs23/freefall_800](https://gitlab.com/prbs23/freefall_800)
 
-[[_TOC_]]
+If you are accessing this through GitHub, be aware that this is a read-only mirror of the real [FreeFall 800 Home Assistant Integration](https://gitlab.com/prbs23/freefall_800_ha_integration) repository. The primary instance of this repository is on GitLab: [prbs23/freefall_800_ha_integration](https://gitlab.com/prbs23/freefall_800_ha_integration).
 
 ## Entities
 
@@ -73,13 +73,11 @@ Blueprints → Import Blueprint**.
 
 ### HACS
 
-Add this repository as a [custom repository](https://hacs.xyz/docs/faq/custom_repositories/)
-in HACS, category "Integration", then install "FreeFall".
+If you are using [HACS (Home Assistant Community Store)](https://hacs.xyz), then you can add the `prbs23/freefall_800_ha_integration` repo as a [custom repository](https://hacs.xyz/docs/faq/custom_repositories/).
 
 ### Manual
 
-Copy `custom_components/freefall800/` into your Home Assistant config's
-`custom_components/` directory and restart Home Assistant.
+For manual installation, copy `custom_components/freefall800/` from this repo into your Home Assistant config's `custom_components/` directory and restart Home Assistant.
 
 Then, in either case: **Settings → Devices & Services → Add Integration →
 FreeFall**, and enter the device's IP address or host name.
@@ -116,7 +114,7 @@ Add `--fix` to have ruff apply its safe fixes automatically.
 If you run into bugs or have feature requests for the FreeFall Home Assistant integration, please report them on the [FreeFall Issue Tracker](https://gitlab.com/prbs23/freefall_800/-/work_items)
 
 ## License
-Licensed under the GNU General Public License v3.0 — see (LICENSE)[LICENSE].
+Licensed under the GNU General Public License v3.0 — see [LICENSE](LICENSE).
 
 ## AI Use
 LLMs have been used in the development of this repository and reverse engineering of the original controller. However, most code was human-developed, and all AI-generated code has been fully reviewed, if not modified, by a human.
