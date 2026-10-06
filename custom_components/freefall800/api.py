@@ -1,4 +1,4 @@
-"""Thin HTTP client for the FreeFall 800's local REST API."""
+"""Thin HTTP client for the FreeFall's local REST API."""
 
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ from .const import REQUEST_TIMEOUT_SECONDS
 
 
 class FreeFall800Error(Exception):
-    """Base error for the FreeFall 800 client."""
+    """Base error for the FreeFall client."""
 
 
 class FreeFall800ConnectionError(FreeFall800Error):
@@ -18,7 +18,7 @@ class FreeFall800ConnectionError(FreeFall800Error):
 
 
 class FreeFall800Client:
-    """Talks to a FreeFall 800's /api/status and /api/control endpoints."""
+    """Talks to a FreeFall's /api/status and /api/control endpoints."""
 
     def __init__(self, session: aiohttp.ClientSession, host: str, port: int) -> None:
         self._session = session
@@ -26,12 +26,8 @@ class FreeFall800Client:
         self._timeout = aiohttp.ClientTimeout(total=REQUEST_TIMEOUT_SECONDS)
 
     async def get_status(self) -> dict[str, Any]:
-        """Fetch /api/status (temps, fan, power, lid switch, timer remaining)."""
+        """Fetch /api/status (temps, fan, power, lid switch, setpoints, timer)."""
         return await self._get("/api/status")
-
-    async def get_control(self) -> dict[str, Any]:
-        """Fetch /api/control (current setpoints)."""
-        return await self._get("/api/control")
 
     async def get_config(self) -> dict[str, Any]:
         """Fetch /api/config (calibration, WiFi, mac_address, build info)."""

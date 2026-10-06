@@ -2,7 +2,7 @@
   "config": {
     "step": {
       "user": {
-        "description": "Enter the IP address or hostname of your FreeFall 800 on your local network.",
+        "description": "Enter the IP address or hostname of your FreeFall on your local network.",
         "data": {
           "host": "Host",
           "port": "Port"
@@ -22,6 +22,7 @@
       "grill": { "name": "Grill" }
     },
     "sensor": {
+      "thermocouple_temp": { "name": "Thermocouple temperature" },
       "probe_temp": { "name": "Probe {index} temperature" },
       "fan_speed": { "name": "Fan speed" },
       "timer_finishes_at": { "name": "Timer finishes at" }

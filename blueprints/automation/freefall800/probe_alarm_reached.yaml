@@ -1,13 +1,13 @@
 blueprint:
-  name: "FreeFall 800: Probe Alarm Reached"
+  name: "FreeFall: Probe Alarm Reached"
   description: >
     Runs an action once when a probe's current temperature first
-    reaches its target temperature. Requires the FreeFall 800 integration.
+    reaches its target temperature. Requires the FreeFall integration.
   domain: automation
   source_url: https://gitlab.com/prbs23/freefall_800_ha_integration/-/raw/main/blueprints/automation/freefall800/probe_alarm_reached.yaml
   input:
     grill_device:
-      name: FreeFall 800
+      name: FreeFall
       selector:
         device:
           filter:
@@ -36,7 +36,7 @@ blueprint:
       default:
         - action: persistent_notification.create
           data:
-            title: FreeFall 800
+            title: FreeFall
             message: "Probe {{ probe_number }} alarm target has been reached."
       selector:
         action: {}

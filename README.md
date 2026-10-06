@@ -1,20 +1,21 @@
-# FreeFall 800 Home Assistant Integration
+# FreeFall Home Assistant Integration
 
-[Home Assistant](https://www.home-assistant.io/) integration for the [FreeFall 800](https://gitlab.com/prbs23/freefall_800) open source firmware.
+[Home Assistant](https://www.home-assistant.io/) integration for the [FreeFall](https://gitlab.com/prbs23/freefall_800) open source firmware.
 
-For more general information about FreeFall 800, see the main repository here: [prbs23/freefall_800](https://gitlab.com/prbs23/freefall_800)
+For more general information about FreeFall, see the main repository here: [prbs23/freefall_800](https://gitlab.com/prbs23/freefall_800)
 
 If you are accessing this through GitHub, be aware that this is a read-only mirror of the real [FreeFall 800 Home Assistant Integration](https://gitlab.com/prbs23/freefall_800_ha_integration) repository. The primary instance of this repository is on GitLab: [prbs23/freefall_800_ha_integration](https://gitlab.com/prbs23/freefall_800_ha_integration).
 
 ## Entities
 
-The FreeFall 800 integration provides the following entities to Home Assistant.
+The FreeFall integration provides the following entities to Home Assistant.
 
 | Platform           | Entity                       | Source                                         |
 | ------------------ | ---------------------------- | ---------------------------------------------- |
 | `climate`          | Grill                        | `current_temp_c` / `set_temp_c`                |
 | `switch`           | Power                        | `power_on`                                     |
 | `switch`           | Probe 1-4 alarm              | `probe_set_temp_c[]` (armed = not null)        |
+| `sensor`           | Thermocouple temperature     | `thermocouple_temp_c`                          |
 | `sensor`           | Probe 1-4 temperature        | `probe_temp_c[]`                               |
 | `sensor`           | Fan speed                    | `fan_speed_pct`                                |
 | `sensor`           | Timer finishes at            | `timer_remaining_s` (as an absolute timestamp) |
@@ -24,7 +25,7 @@ The FreeFall 800 integration provides the following entities to Home Assistant.
 | `button`           | Clear timer                  | `timer_duration_s` (sets it to null)           |
 
 The device has no push channel (no WebSocket/SSE/mDNS today), so the
-integration polls `/api/status` and `/api/control` every 10 seconds
+integration polls `/api/status` every 10 seconds
 (`iot_class: local_polling` in `manifest.json`).
 
 Config entries are keyed on the device's MAC address (`mac_address` from
@@ -49,7 +50,7 @@ entities are obviously also available to use.
 
 ### Notification blueprints
 
-To help set up notifications and other triggered automations from your FreeFall 800
+To help set up notifications and other triggered automations from your FreeFall
 device, this repository also distributes some helpful automation blueprints. To import
 these blueprints into your instance you can use the buttons below through
 [my.home-assistant.io](https://my.home-assistant.io), or you can copy the provided links
@@ -79,7 +80,7 @@ If you are using [HACS (Home Assistant Community Store)](https://hacs.xyz), then
 For manual installation, copy `custom_components/freefall800/` from this repo into your Home Assistant config's `custom_components/` directory and restart Home Assistant.
 
 Then, in either case: **Settings → Devices & Services → Add Integration →
-FreeFall 800**, and enter the device's IP address or host name.
+FreeFall**, and enter the device's IP address or host name.
 
 ## Development
 
@@ -110,7 +111,7 @@ ruff check custom_components/freefall800/
 Add `--fix` to have ruff apply its safe fixes automatically.
 
 ## Reporting issues
-If you run into bugs or have feature requests for the FreeFall 800 Home Assistant integration, please report them on the [FreeFall 800 Issue Tracker](https://gitlab.com/prbs23/freefall_800/-/work_items)
+If you run into bugs or have feature requests for the FreeFall Home Assistant integration, please report them on the [FreeFall Issue Tracker](https://gitlab.com/prbs23/freefall_800/-/work_items)
 
 ## License
 Licensed under the GNU General Public License v3.0 — see [LICENSE](LICENSE).

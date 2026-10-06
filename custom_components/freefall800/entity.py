@@ -1,4 +1,4 @@
-"""Base entity for FreeFall 800 entities."""
+"""Base entity for FreeFall entities."""
 
 from __future__ import annotations
 
@@ -6,12 +6,12 @@ from homeassistant.const import CONF_HOST, CONF_MAC, CONF_PORT
 from homeassistant.helpers.device_registry import CONNECTION_NETWORK_MAC, DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
-from .const import DOMAIN, MANUFACTURER, MODEL
+from .const import DOMAIN, MANUFACTURER, model_name
 from .coordinator import FreeFall800Coordinator
 
 
 class FreeFall800Entity(CoordinatorEntity[FreeFall800Coordinator]):
-    """Common device info for all FreeFall 800 entities."""
+    """Common device info for all FreeFall entities."""
 
     _attr_has_entity_name = True
 
@@ -27,7 +27,7 @@ class FreeFall800Entity(CoordinatorEntity[FreeFall800Coordinator]):
             connections={(CONNECTION_NETWORK_MAC, mac)} if mac else set(),
             name=entry.title,
             manufacturer=MANUFACTURER,
-            model=MODEL,
+            model=model_name(coordinator.hw_model),
             sw_version=coordinator.sw_version,
             configuration_url=f"http://{host}:{port}/",
         )

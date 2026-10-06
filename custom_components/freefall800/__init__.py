@@ -1,4 +1,4 @@
-"""The FreeFall 800 integration."""
+"""The FreeFall integration."""
 
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ PLATFORMS: list[Platform] = [
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: FreeFall800ConfigEntry) -> bool:
-    """Set up FreeFall 800 from a config entry."""
+    """Set up FreeFall from a config entry."""
     client = FreeFall800Client(
         async_get_clientsession(hass), entry.data[CONF_HOST], entry.data[CONF_PORT]
     )
@@ -39,9 +39,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: FreeFall800ConfigEntry) 
     try:
         config = await client.get_config()
     except FreeFall800ConnectionError:
-        _LOGGER.warning("Could not fetch firmware version for %s", entry.title)
+        _LOGGER.warning("Could not fetch firmware version and model for %s", entry.title)
     else:
         coordinator.sw_version = config.get("version")
+        coordinator.hw_model = config.get("hw_model")
 
     entry.runtime_data = coordinator
 

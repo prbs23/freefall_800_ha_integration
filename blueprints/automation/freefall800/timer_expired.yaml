@@ -1,13 +1,13 @@
 blueprint:
-  name: "FreeFall 800: Timer Expired"
+  name: "FreeFall: Timer Expired"
   description: >
     Runs an action once when the cook timer expires. Requires the
-    FreeFall 800 integration.
+    FreeFall integration.
   domain: automation
   source_url: https://gitlab.com/prbs23/freefall_800_ha_integration/-/raw/main/blueprints/automation/freefall800/timer_expired.yaml
   input:
     grill_device:
-      name: FreeFall 800
+      name: FreeFall
       selector:
         device:
           filter:
@@ -19,7 +19,7 @@ blueprint:
       default:
         - action: persistent_notification.create
           data:
-            title: FreeFall 800
+            title: FreeFall
             message: The timer has expired.
       selector:
         action: {}

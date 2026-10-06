@@ -1,6 +1,6 @@
 {
   "domain": "freefall800",
-  "name": "FreeFall 800",
+  "name": "FreeFall",
   "codeowners": ["@prbs23"],
   "config_flow": true,
   "documentation": "https://gitlab.com/prbs23/freefall_800_ha_integration",
@@ -8,5 +8,5 @@
   "iot_class": "local_polling",
   "issue_tracker": "https://gitlab.com/prbs23/freefall_800/-/work_items",
   "requirements": [],
-  "version": "0.1.0"
+  "version": "0.2.0"
 }

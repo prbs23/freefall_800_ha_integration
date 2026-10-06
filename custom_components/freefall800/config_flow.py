@@ -1,4 +1,4 @@
-"""Config flow for the FreeFall 800 integration."""
+"""Config flow for the FreeFall integration."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.device_registry import format_mac
 
 from .api import FreeFall800Client, FreeFall800ConnectionError
-from .const import DEFAULT_PORT, DOMAIN
+from .const import DEFAULT_PORT, DOMAIN, model_name
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -25,7 +25,7 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
 
 
 class FreeFall800ConfigFlow(ConfigFlow, domain=DOMAIN):
-    """Handle a config flow for FreeFall 800."""
+    """Handle a config flow for FreeFall."""
 
     VERSION = 1
 
@@ -46,7 +46,7 @@ class FreeFall800ConfigFlow(ConfigFlow, domain=DOMAIN):
             except FreeFall800ConnectionError:
                 errors["base"] = "cannot_connect"
             except Exception:
-                _LOGGER.exception("Unexpected error validating FreeFall 800 connection")
+                _LOGGER.exception("Unexpected error validating FreeFall connection")
                 errors["base"] = "unknown"
             else:
                 mac = format_mac(config["mac_address"])
@@ -55,7 +55,7 @@ class FreeFall800ConfigFlow(ConfigFlow, domain=DOMAIN):
                 # existing entry's host/port instead of creating a duplicate.
                 self._abort_if_unique_id_configured(updates={CONF_HOST: host, CONF_PORT: port})
                 return self.async_create_entry(
-                    title=f"FreeFall 800 ({host})",
+                    title=f"{model_name(config.get('hw_model'))} ({host})",
                     data={CONF_HOST: host, CONF_PORT: port, CONF_MAC: mac},
                 )
 

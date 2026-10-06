@@ -1,4 +1,4 @@
-"""Sensor platform for the FreeFall 800: probe temps, fan speed, timer remaining."""
+"""Sensor platform for the FreeFall: thermocouple/probe temps, fan speed, timer."""
 
 from __future__ import annotations
 
@@ -24,18 +24,19 @@ async def async_setup_entry(
     entry: FreeFall800ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up sensors for a FreeFall 800 config entry."""
+    """Set up sensors for a FreeFall config entry."""
     coordinator = entry.runtime_data
     entities: list[SensorEntity] = [
         FreeFall800ProbeTempSensor(coordinator, index) for index in range(NUM_PROBES)
     ]
+    entities.append(FreeFall800ThermocoupleTempSensor(coordinator))
     entities.append(FreeFall800FanSpeedSensor(coordinator))
     entities.append(FreeFall800TimerFinishesAtSensor(coordinator))
     async_add_entities(entities)
 
 
 class FreeFall800ProbeTempSensor(FreeFall800Entity, SensorEntity):
-    """A single meat probe's current temperature."""
+    """A single probe's current temperature."""
 
     _attr_device_class = SensorDeviceClass.TEMPERATURE
     _attr_native_unit_of_measurement = UnitOfTemperature.CELSIUS
@@ -51,6 +52,27 @@ class FreeFall800ProbeTempSensor(FreeFall800Entity, SensorEntity):
     @property
     def native_value(self) -> float | None:
         return self.coordinator.data.probe_temp_c[self._index]
+
+
+class FreeFall800ThermocoupleTempSensor(FreeFall800Entity, SensorEntity):
+    """The grill chamber thermocouple's current temperature.
+
+    Distinct from the climate entity's current temperature, which is the PID
+    feedback value and may combine the thermocouple with one or more probes.
+    """
+
+    _attr_translation_key = "thermocouple_temp"
+    _attr_device_class = SensorDeviceClass.TEMPERATURE
+    _attr_native_unit_of_measurement = UnitOfTemperature.CELSIUS
+    _attr_state_class = SensorStateClass.MEASUREMENT
+    _attr_icon = "mdi:thermometer"
+
+    def __init__(self, coordinator: FreeFall800Coordinator) -> None:
+        super().__init__(coordinator, "thermocouple_temp")
+
+    @property
+    def native_value(self) -> float | None:
+        return self.coordinator.data.thermocouple_temp_c
 
 
 class FreeFall800FanSpeedSensor(FreeFall800Entity, SensorEntity):

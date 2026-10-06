@@ -1,4 +1,4 @@
-"""Climate platform for the FreeFall 800's main grill temperature control."""
+"""Climate platform for the FreeFall's main grill temperature control."""
 
 from __future__ import annotations
 
@@ -20,12 +20,12 @@ async def async_setup_entry(
     entry: FreeFall800ConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up the climate entity for a FreeFall 800 config entry."""
+    """Set up the climate entity for a FreeFall config entry."""
     async_add_entities([FreeFall800Climate(entry.runtime_data)])
 
 
 class FreeFall800Climate(FreeFall800Entity, ClimateEntity):
-    """Represents the FreeFall 800's main chamber temperature control."""
+    """Represents the FreeFall's main chamber temperature control."""
 
     _attr_translation_key = "grill"
     _attr_icon = "mdi:gas-burner"

@@ -1,13 +1,13 @@
 blueprint:
-  name: "FreeFall 800: Grill Reached Target Temperature"
+  name: "FreeFall: Grill Reached Target Temperature"
   description: >
     Runs an action once when the grill's current temperature first reaches
-    its target. Requires the FreeFall 800 integration.
+    its target. Requires the FreeFall integration.
   domain: automation
   source_url: https://gitlab.com/prbs23/freefall_800_ha_integration/-/raw/main/blueprints/automation/freefall800/grill_reached_target.yaml
   input:
     grill_device:
-      name: FreeFall 800
+      name: FreeFall
       selector:
         device:
           filter:
@@ -20,7 +20,7 @@ blueprint:
       default:
         - action: persistent_notification.create
           data:
-            title: FreeFall 800
+            title: FreeFall
             message: The grill has reached its target temperature.
       selector:
         action: {}
